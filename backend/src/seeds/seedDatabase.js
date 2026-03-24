@@ -46,40 +46,12 @@ const seedDatabase = async () => {
 
     // Create sample products
     console.log('🌸 Creating sample products...');
-    
-    // Single flowers
-    const rose = await Product.create({
-      name: 'Eternal Rose',
-      description: 'Beautiful handmade eternal rose that lasts forever. Perfect for any occasion.',
-      images: ['https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400'],
-      category: 'single-flower',
-      price: 45,
-      isActive: true,
-      stockStatus: 'in-stock',
-      applicableServices: ['single-bouquet', 'customize-bouquet'],
-      hasGreeneryOption: true,
-      greeneryPrice: 10,
-      imageWithGreenery: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400',
-    });
 
-    const tulip = await Product.create({
-      name: 'Eternal Tulip',
-      description: 'Elegant handcrafted eternal tulip. A timeless beauty.',
-      images: ['https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=400'],
-      category: 'single-flower',
-      price: 40,
-      isActive: true,
-      stockStatus: 'in-stock',
-      applicableServices: ['single-bouquet', 'customize-bouquet'],
-      hasGreeneryOption: true,
-      greeneryPrice: 10,
-      imageWithGreenery: 'https://images.unsplash.com/photo-1520763185298-1b434c919102?w=400',
-    });
+    // ── Single Flowers ──────────────────────────────────────────────
 
-    const lily = await Product.create({
-      name: 'Eternal Lily',
-      description: 'Graceful eternal lily, handmade with love and care.',
-      images: ['https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=400'],
+    const dahlia = await Product.create({
+      name: 'Eternal Dahlia',
+      description: 'Stunning handmade eternal dahlia in rich purple velvet. A bold and elegant statement flower that lasts forever.',
       category: 'single-flower',
       price: 50,
       isActive: true,
@@ -89,10 +61,9 @@ const seedDatabase = async () => {
       greeneryPrice: 10,
     });
 
-    const peony = await Product.create({
-      name: 'Eternal Peony',
-      description: 'Luxurious eternal peony, full and romantic.',
-      images: ['https://images.unsplash.com/photo-1465146633011-14f8e0781093?w=400'],
+    const valentineRose = await Product.create({
+      name: 'Eternal Valentine Rose',
+      description: 'Romantic handmade eternal rose in deep burgundy velvet with rosebud detail. The perfect symbol of love.',
       category: 'single-flower',
       price: 55,
       isActive: true,
@@ -102,11 +73,181 @@ const seedDatabase = async () => {
       greeneryPrice: 10,
     });
 
-    // Fillers
+    const hibiscus = await Product.create({
+      name: 'Eternal Hibiscus',
+      description: 'Vibrant handmade eternal hibiscus in sunny yellow. A tropical beauty that brings warmth to any space.',
+      category: 'single-flower',
+      price: 48,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const lotus = await Product.create({
+      name: 'Eternal Lotus',
+      description: 'Exquisite handmade eternal lotus in deep magenta with soft pink center and green leaves. A symbol of purity and grace.',
+      category: 'single-flower',
+      price: 60,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const swirlRose = await Product.create({
+      name: 'Eternal Swirl Rose',
+      description: 'Charming handmade eternal swirl rose in bright red-orange with delicate leaf detail. Petite and perfect.',
+      category: 'single-flower',
+      price: 40,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const tulip = await Product.create({
+      name: 'Eternal Tulip',
+      description: 'Elegant handmade eternal tulip in soft pink velvet. A timeless classic with graceful form.',
+      category: 'single-flower',
+      price: 42,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const calaLilies = await Product.create({
+      name: 'Eternal Cala Lilies',
+      description: 'Delicate handmade eternal cala lilies in white with yellow centers. A pair of graceful blooms on a single stem.',
+      category: 'single-flower',
+      price: 52,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const largeCalaLily = await Product.create({
+      name: 'Eternal Large Cala Lily',
+      description: 'Dramatic handmade eternal cala lily in deep crimson red with elegant leaf detail. A bold and stunning statement piece.',
+      category: 'single-flower',
+      price: 58,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const hybridRose = await Product.create({
+      name: 'Eternal Hybrid Rose',
+      description: 'Beautiful handmade eternal hybrid rose in soft pink with delicate stamen details. A unique and romantic bloom.',
+      category: 'single-flower',
+      price: 50,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const rose = await Product.create({
+      name: 'Eternal Rose',
+      description: 'Classic handmade eternal rose in deep burgundy velvet with lush leaves. A timeless symbol of beauty and love.',
+      category: 'single-flower',
+      price: 45,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const babyFlowers = await Product.create({
+      name: 'Eternal Baby Flowers',
+      description: 'Dainty handmade eternal baby flowers in white with tiny buds on a single stem. Perfect as an accent or filler.',
+      category: 'single-flower',
+      price: 35,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const peony = await Product.create({
+      name: 'Eternal Peony',
+      description: 'Luxurious handmade eternal peony in rich crimson red with creamy stamen center. Full, romantic, and breathtaking.',
+      category: 'single-flower',
+      price: 55,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const orchid = await Product.create({
+      name: 'Eternal Orchid',
+      description: 'Exotic handmade eternal orchid in deep red with a cream and burgundy center. Sophisticated and striking.',
+      category: 'single-flower',
+      price: 52,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const daffodil = await Product.create({
+      name: 'Eternal Daffodil',
+      description: 'Cheerful handmade eternal daffodil in white and yellow. A bright herald of spring that never fades.',
+      category: 'single-flower',
+      price: 44,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const trumpetLily = await Product.create({
+      name: 'Eternal Trumpet Lily',
+      description: 'Graceful handmade eternal trumpet lily in pure white with dark burgundy stamens and green leaves. Majestic and serene.',
+      category: 'single-flower',
+      price: 50,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    const hydrangeas = await Product.create({
+      name: 'Eternal Hydrangeas',
+      description: 'Lush handmade eternal hydrangea cluster in vibrant yellow-green with pearl-like centers. Full and gorgeous.',
+      category: 'single-flower',
+      price: 65,
+      isActive: true,
+      stockStatus: 'in-stock',
+      applicableServices: ['single-bouquet', 'customize-bouquet'],
+      hasGreeneryOption: true,
+      greeneryPrice: 10,
+    });
+
+    console.log('✅ Single flower products created');
+
+    // ── Fillers ─────────────────────────────────────────────────────
+
     const babyBreath = await Product.create({
       name: "Baby's Breath",
       description: 'Delicate filler flowers for added elegance.',
-      images: ['https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400'],
       category: 'filler',
       price: 8,
       isActive: true,
@@ -117,7 +258,6 @@ const seedDatabase = async () => {
     const lavender = await Product.create({
       name: 'Dried Lavender',
       description: 'Aromatic dried lavender stems.',
-      images: ['https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=400'],
       category: 'filler',
       price: 12,
       isActive: true,
@@ -125,11 +265,13 @@ const seedDatabase = async () => {
       applicableServices: ['customize-bouquet'],
     });
 
-    // Greenery fillers
+    console.log('✅ Filler products created');
+
+    // ── Greenery Fillers ────────────────────────────────────────────
+
     const eucalyptus = await Product.create({
       name: 'Eucalyptus',
-      description: 'Fresh eucalyptus greenery for natural touch.',
-      images: ['https://images.unsplash.com/photo-1542262868-cec49cce6571?w=400'],
+      description: 'Fresh eucalyptus greenery for a natural touch.',
       category: 'greenery-filler',
       price: 15,
       isActive: true,
@@ -140,7 +282,6 @@ const seedDatabase = async () => {
     const fern = await Product.create({
       name: 'Fern Leaves',
       description: 'Elegant fern leaves for added texture.',
-      images: ['https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6?w=400'],
       category: 'greenery-filler',
       price: 10,
       isActive: true,
@@ -148,11 +289,13 @@ const seedDatabase = async () => {
       applicableServices: ['customize-bouquet'],
     });
 
-    // Centerpieces
+    console.log('✅ Greenery filler products created');
+
+    // ── Centerpieces ────────────────────────────────────────────────
+
     const centerpiece1 = await Product.create({
       name: 'Classic Elegance Centerpiece',
       description: 'Timeless centerpiece with roses and greenery. Perfect for weddings and formal events.',
-      images: ['https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400'],
       category: 'centerpiece',
       price: 120,
       isActive: true,
@@ -163,7 +306,6 @@ const seedDatabase = async () => {
     const centerpiece2 = await Product.create({
       name: 'Rustic Garden Centerpiece',
       description: 'Natural and rustic centerpiece with wildflowers and greenery.',
-      images: ['https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400'],
       category: 'centerpiece',
       price: 100,
       isActive: true,
@@ -171,10 +313,11 @@ const seedDatabase = async () => {
       applicableServices: ['events'],
     });
 
-    console.log('✅ Products created');
+    console.log('✅ Centerpiece products created');
 
-    // Create sample promo code
-    console.log('🎫 Creating promo code...');
+    // ── Promo Codes ─────────────────────────────────────────────────
+    console.log('🎫 Creating promo codes...');
+
     await PromoCode.create({
       code: 'ETERNAL10',
       description: '10% off your entire order',
@@ -182,7 +325,7 @@ const seedDatabase = async () => {
       discountValue: 10,
       validServices: ['all'],
       startDate: new Date(),
-      endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year from now
+      endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
       minOrderAmount: 50,
       isActive: true,
     });
@@ -202,17 +345,18 @@ const seedDatabase = async () => {
 
     console.log('✅ Promo codes created');
 
-    // Create sample offer
-    console.log('🎁 Creating offer...');
+    // ── Offers ──────────────────────────────────────────────────────
+    console.log('🎁 Creating offers...');
+
     await Offer.create({
       name: 'Spring Special - Roses',
       description: '15% off all eternal roses',
-      targetProducts: [rose._id],
+      targetProducts: [rose._id, valentineRose._id, swirlRose._id, hybridRose._id],
       targetServices: ['single-bouquet', 'customize-bouquet'],
       discountType: 'percentage',
       discountValue: 15,
       startDate: new Date(),
-      endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 days
+      endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
       isActive: true,
     });
 
@@ -222,6 +366,10 @@ const seedDatabase = async () => {
     console.log('\n📋 Login Credentials:');
     console.log(`   Email: ${process.env.ADMIN_EMAIL}`);
     console.log(`   Password: ${process.env.ADMIN_PASSWORD}`);
+    console.log('\n🌸 Flowers Created (16):');
+    console.log('   Dahlia, Valentine Rose, Hibiscus, Lotus, Swirl Rose,');
+    console.log('   Tulip, Cala Lilies, Large Cala Lily, Hybrid Rose, Rose,');
+    console.log('   Baby Flowers, Peony, Orchid, Daffodil, Trumpet Lily, Hydrangeas');
     console.log('\n🎫 Sample Promo Codes:');
     console.log('   ETERNAL10 - 10% off orders over $50');
     console.log('   WELCOME20 - $20 off orders over $100 (one-time use)');

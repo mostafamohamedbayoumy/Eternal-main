@@ -11,12 +11,13 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Product description is required'],
     },
-    images: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
+
+    // Add this to your Product model schema
+    base64: {
+      type: String,
+      default: '',
+    },
+
     category: {
       type: String,
       enum: ['single-flower', 'filler', 'greenery-filler', 'centerpiece'],
