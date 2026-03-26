@@ -1,0 +1,326 @@
+/* ======================================================
+   Flower Detail Page
+   ====================================================== */
+
+.flower-detail-page {
+  padding: 2rem 0 5rem;
+  min-height: 80vh;
+  background: var(--color-white);
+}
+
+/* ---- Back Link ---- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+/* ---- Layout (image + info side by side) ---- */
+.flower-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ---- Image Section ---- */
+.flower-detail-image-section {
+  position: sticky;
+  top: 2rem;
+}
+
+.flower-detail-image-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #faf9f6;
+  box-shadow: 0 4px 24px rgba(74, 82, 57, 0.08);
+}
+
+.flower-detail-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---- Info Section ---- */
+.flower-detail-info-section {
+  padding-top: 0.5rem;
+}
+
+.flower-detail-name {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.flower-detail-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.flower-detail-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-gray-dark);
+  margin-bottom: 2rem;
+}
+
+/* ---- Option Group ---- */
+.flower-detail-option-group {
+  margin-bottom: 1.75rem;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-gray-dark);
+  margin-bottom: 0.75rem;
+}
+
+.selected-color-name {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+/* ---- Color Selector Circles ---- */
+.color-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.color-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.color-circle:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.color-circle.active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-primary),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transform: scale(1.1);
+}
+
+.color-check {
+  pointer-events: none;
+}
+
+/* ---- Greenery Toggle Button ---- */
+.greenery-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--color-secondary-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.greenery-toggle-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-secondary-light);
+}
+
+.greenery-toggle-btn.active {
+  border-color: var(--color-primary);
+  background: var(--color-secondary-light);
+}
+
+.greenery-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-secondary-light);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.greenery-toggle-btn.active .greenery-toggle-icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.greenery-toggle-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.greenery-toggle-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.greenery-toggle-price {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  margin-top: 2px;
+}
+
+/* ---- Toggle Switch ---- */
+.greenery-toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--color-secondary-dark);
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.25s ease;
+}
+
+.greenery-toggle-btn.active .greenery-toggle-switch {
+  background: var(--color-primary);
+}
+
+.greenery-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-white);
+  transition: transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.greenery-toggle-btn.active .greenery-toggle-knob {
+  transform: translateX(20px);
+}
+
+/* ---- Add to Cart Button ---- */
+.add-to-cart-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+/* ---- Not Found ---- */
+.not-found {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.not-found h2 {
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  margin-bottom: 2rem;
+  color: var(--color-gray);
+}
+
+/* ======================================================
+   Responsive
+   ====================================================== */
+
+@media (max-width: 900px) {
+  .flower-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .flower-detail-image-section {
+    position: static;
+  }
+
+  .flower-detail-image-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .flower-detail-name {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .flower-detail-page {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .flower-detail-layout {
+    gap: 1.5rem;
+  }
+
+  .flower-detail-name {
+    font-size: 1.75rem;
+  }
+
+  .flower-detail-price {
+    font-size: 1.25rem;
+  }
+
+  .flower-detail-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .color-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .greenery-toggle-btn {
+    padding: 0.85rem 1rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+}

@@ -25,7 +25,7 @@ const promoCodeSchema = new mongoose.Schema(
     validServices: [
       {
         type: String,
-        enum: ['single-bouquet', 'customize-bouquet', 'events', 'all'],
+        enum: ['single-bouquet', 'customize-bouquet', 'all'],
       },
     ],
     startDate: {

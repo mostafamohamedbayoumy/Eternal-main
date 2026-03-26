@@ -291,30 +291,6 @@ const seedDatabase = async () => {
 
     console.log('✅ Greenery filler products created');
 
-    // ── Centerpieces ────────────────────────────────────────────────
-
-    const centerpiece1 = await Product.create({
-      name: 'Classic Elegance Centerpiece',
-      description: 'Timeless centerpiece with roses and greenery. Perfect for weddings and formal events.',
-      category: 'centerpiece',
-      price: 120,
-      isActive: true,
-      stockStatus: 'in-stock',
-      applicableServices: ['events'],
-    });
-
-    const centerpiece2 = await Product.create({
-      name: 'Rustic Garden Centerpiece',
-      description: 'Natural and rustic centerpiece with wildflowers and greenery.',
-      category: 'centerpiece',
-      price: 100,
-      isActive: true,
-      stockStatus: 'in-stock',
-      applicableServices: ['events'],
-    });
-
-    console.log('✅ Centerpiece products created');
-
     // ── Promo Codes ─────────────────────────────────────────────────
     console.log('🎫 Creating promo codes...');
 

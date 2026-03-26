@@ -1,29 +1,34 @@
 .footer {
   background: var(--color-primary);
   color: var(--color-white);
-  padding: 3rem 0 1rem;
-  margin-top: 5rem;
+  padding: 4rem 0 1.5rem;
+  margin-top: 0;   /* removed — let page sections handle spacing */
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .footer-section h4 {
+  font-family: var(--font-heading);
   color: var(--color-secondary);
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .footer-section p,
 .footer-section a {
+  font-size: 0.88rem;
   color: var(--color-white);
   display: block;
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  opacity: 0.85;
+  transition: opacity 0.3s;
 }
 
 .footer-section a:hover {
@@ -32,13 +37,15 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 1.5rem;
   text-align: center;
 }
 
 .footer-bottom p {
   color: var(--color-white);
-  opacity: 0.8;
+  opacity: 0.7;
   margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.3px;
 }

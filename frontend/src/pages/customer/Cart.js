@@ -64,17 +64,22 @@ const Cart = () => {
         {item.isCustomBouquet && item.customBouquetDetails && (
           <div className="custom-bouquet-breakdown">
             <p className="custom-label">Custom Bouquet Details:</p>
-            {item.customBouquetDetails.flowers.length > 0 && (
+            {item.customBouquetDetails.flowers && item.customBouquetDetails.flowers.length > 0 && (
               <div className="breakdown-section">
                 <strong>Flowers:</strong>
                 <ul>
                   {item.customBouquetDetails.flowers.map((flower, i) => (
-                    <li key={i}>{flower.productName} x {flower.quantity}</li>
+                    <li key={i}>
+                      {flower.productName} x {flower.quantity}
+                      {flower.selectedColor && (
+                        <span className="cart-color-detail"> &mdash; {flower.selectedColor}</span>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
             )}
-            {item.customBouquetDetails.fillers.length > 0 && (
+            {item.customBouquetDetails.fillers && item.customBouquetDetails.fillers.length > 0 && (
               <div className="breakdown-section">
                 <strong>Fillers:</strong>
                 <ul>
@@ -84,7 +89,7 @@ const Cart = () => {
                 </ul>
               </div>
             )}
-            {item.customBouquetDetails.greeneryFillers.length > 0 && (
+            {item.customBouquetDetails.greeneryFillers && item.customBouquetDetails.greeneryFillers.length > 0 && (
               <div className="breakdown-section">
                 <strong>Greenery:</strong>
                 <ul>
@@ -92,6 +97,11 @@ const Cart = () => {
                     <li key={i}>{greenery.productName} x {greenery.quantity}</li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {item.customBouquetDetails.greenery && (
+              <div className="breakdown-section">
+                <strong>Greenery Filler:</strong> Included
               </div>
             )}
             {item.customBouquetDetails.specialInstructions && (
@@ -102,9 +112,9 @@ const Cart = () => {
           </div>
         )}
 
-        {item.hasGreenery && (
+        {item.hasGreenery && !item.isCustomBouquet && (
           <p className="cart-item-option">
-            ✓ With Greenery Filler (+${item.greeneryPrice.toFixed(2)})
+            ✓ With Greenery Filler (+${(item.greeneryPrice || 0).toFixed(2)})
           </p>
         )}
 

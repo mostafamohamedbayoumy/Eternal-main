@@ -15,14 +15,13 @@ const Home = lazy(() => import('./pages/customer/Home'));
 const Login = lazy(() => import('./pages/customer/Login'));
 const Register = lazy(() => import('./pages/customer/Register'));
 const SingleBouquet = lazy(() => import('./pages/customer/SingleBouquet'));
+const FlowerDetail = lazy(() => import('./pages/customer/FlowerDetail'));
 const CustomizeBouquet = lazy(() => import('./pages/customer/CustomizeBouquet'));
-const Events = lazy(() => import('./pages/customer/Events'));
 const Cart = lazy(() => import('./pages/customer/Cart'));
 const Checkout = lazy(() => import('./pages/customer/Checkout'));
 const OrderConfirmation = lazy(() => import('./pages/customer/OrderConfirmation'));
 const Account = lazy(() => import('./pages/customer/Account'));
 const MyOrders = lazy(() => import('./pages/customer/MyOrders'));
-const MyEvents = lazy(() => import('./pages/customer/MyEvents'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
 function App() {
@@ -37,8 +36,8 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/single-bouquet" element={<SingleBouquet />} />
+                  <Route path="/single-bouquet/:id" element={<FlowerDetail />} />
                   <Route path="/customize" element={<CustomizeBouquet />} />
-                  <Route path="/events" element={<Events />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/order-confirmation" element={<OrderConfirmation />} />

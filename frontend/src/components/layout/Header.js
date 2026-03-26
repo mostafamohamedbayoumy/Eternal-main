@@ -37,7 +37,6 @@ const Header = () => {
             <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
             <Link to="/single-bouquet" onClick={() => setMenuOpen(false)}>Single Bouquets</Link>
             <Link to="/customize" onClick={() => setMenuOpen(false)}>Customize</Link>
-            <Link to="/events" onClick={() => setMenuOpen(false)}>Events</Link>
           </nav>
 
           <div className="header-actions">

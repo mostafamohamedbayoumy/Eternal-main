@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
 
     category: {
       type: String,
-      enum: ['single-flower', 'filler', 'greenery-filler', 'centerpiece'],
+      enum: ['single-flower', 'filler', 'greenery-filler'],
       required: [true, 'Category is required'],
     },
     price: {
@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema(
     applicableServices: [
       {
         type: String,
-        enum: ['single-bouquet', 'customize-bouquet', 'events'],
+        enum: ['single-bouquet', 'customize-bouquet'],
       },
     ],
     // For greenery filler additions
