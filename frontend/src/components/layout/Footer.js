@@ -15,13 +15,11 @@ const Footer = () => {
             <h4>Quick Links</h4>
             <Link to="/single-bouquet">Single Bouquets</Link>
             <Link to="/customize">Customize Your Bouquet</Link>
-            <Link to="/events">Events</Link>
           </div>
           <div className="footer-section">
             <h4>Customer Service</h4>
             <Link to="/account">My Account</Link>
             <Link to="/my-orders">Order Status</Link>
-            <Link to="/my-events">Event Requests</Link>
           </div>
           <div className="footer-section">
             <h4>Contact</h4>

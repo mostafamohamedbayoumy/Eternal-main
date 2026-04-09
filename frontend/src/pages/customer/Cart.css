@@ -72,6 +72,11 @@
   color: var(--color-gray-dark);
 }
 
+.cart-color-detail {
+  color: var(--color-gray);
+  font-style: italic;
+}
+
 .special-instructions {
   margin-top: 0.5rem;
   font-style: italic;

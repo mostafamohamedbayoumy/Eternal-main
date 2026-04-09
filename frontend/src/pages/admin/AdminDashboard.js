@@ -11,7 +11,6 @@ const AdminDashboard = () => {
           <Link to="/admin">Dashboard</Link>
           <Link to="/admin/products">Products</Link>
           <Link to="/admin/orders">Orders</Link>
-          <Link to="/admin/events">Event Requests</Link>
           <Link to="/admin/promo-codes">Promo Codes</Link>
           <Link to="/admin/offers">Offers</Link>
         </nav>
@@ -22,7 +21,6 @@ const AdminDashboard = () => {
           <Route path="/" element={<DashboardHome />} />
           <Route path="/products" element={<div>Products Management</div>} />
           <Route path="/orders" element={<div>Orders Management</div>} />
-          <Route path="/events" element={<div>Event Requests Management</div>} />
           <Route path="/promo-codes" element={<div>Promo Codes Management</div>} />
           <Route path="/offers" element={<div>Offers Management</div>} />
         </Routes>
@@ -43,10 +41,6 @@ const DashboardHome = () => (
         </div>
         <div className="stat-card">
           <h3>Products</h3>
-          <p className="stat-value">0</p>
-        </div>
-        <div className="stat-card">
-          <h3>Event Requests</h3>
           <p className="stat-value">0</p>
         </div>
         <div className="stat-card">

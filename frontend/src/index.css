@@ -1,31 +1,34 @@
-/* Global Styles with Eternal Floral Theme */
+/* ═══════════════════════════════════════════════════════
+   Global Styles — Eternal Flowers Boutique Theme
+   ═══════════════════════════════════════════════════════ */
 
 :root {
-  /* Brand Colors - Kelp (main green) and Tana (cream) */
+  /* Brand Colors — Kelp & Tana */
   --color-primary: #4a5239;
   --color-primary-light: #636f50;
   --color-primary-dark: #3a4029;
   --color-secondary: #ddd8c0;
-  --color-secondary-light: #f0ede0;
+  --color-secondary-light: #f5f3ec;
   --color-secondary-dark: #c7c2a8;
-  
-  /* Additional colors */
+
+  /* Neutrals */
   --color-accent: #8b9470;
   --color-white: #ffffff;
+  --color-off-white: #faf9f6;
   --color-black: #1a1a1a;
   --color-gray-light: #f5f5f5;
-  --color-gray: #888;
-  --color-gray-dark: #333;
-  
-  /* Status colors */
+  --color-gray: #8a8a8a;
+  --color-gray-dark: #3d3d3d;
+
+  /* Status */
   --color-success: #6b9470;
   --color-error: #c77474;
   --color-warning: #d4a373;
-  
+
   /* Typography */
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Montserrat', sans-serif;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -33,62 +36,57 @@
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
   --spacing-xxl: 4rem;
-  
+
   /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 20px;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(74, 82, 57, 0.1);
-  --shadow-md: 0 4px 6px rgba(74, 82, 57, 0.1);
-  --shadow-lg: 0 10px 15px rgba(74, 82, 57, 0.15);
-  --shadow-xl: 0 20px 25px rgba(74, 82, 57, 0.2);
-  
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+
+  /* Shadows — softer, warmer */
+  --shadow-sm: 0 1px 4px rgba(74, 82, 57, 0.06);
+  --shadow-md: 0 3px 12px rgba(74, 82, 57, 0.08);
+  --shadow-lg: 0 8px 24px rgba(74, 82, 57, 0.1);
+  --shadow-xl: 0 16px 40px rgba(74, 82, 57, 0.12);
+
   /* Transitions */
   --transition: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
 }
 
-* {
+/* ── Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ── Body ──────────────────────────────────────────────── */
 body {
   font-family: var(--font-body);
+  font-weight: 400;
   color: var(--color-black);
   background-color: var(--color-white);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Typography ────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--color-primary);
 }
 
-h1 {
-  font-size: 3.5rem;
-  letter-spacing: 2px;
-}
-
-h2 {
-  font-size: 2.5rem;
-  letter-spacing: 1.5px;
-}
-
-h3 {
-  font-size: 2rem;
-  letter-spacing: 1px;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
+h1 { font-size: 3.25rem; letter-spacing: 1.5px; }
+h2 { font-size: 2.35rem; letter-spacing: 1px; }
+h3 { font-size: 1.75rem; letter-spacing: 0.5px; }
+h4 { font-size: 1.35rem; }
 
 p {
   margin-bottom: 1rem;
@@ -118,18 +116,19 @@ input, textarea, select {
   font-family: var(--font-body);
   border: 1px solid var(--color-secondary-dark);
   border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1rem;
   width: 100%;
   transition: var(--transition);
+  font-size: 0.92rem;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(74, 82, 57, 0.1);
+  box-shadow: 0 0 0 3px rgba(74, 82, 57, 0.08);
 }
 
-/* Container */
+/* ── Container ─────────────────────────────────────────── */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -142,13 +141,15 @@ input:focus, textarea:focus, select:focus {
   padding: 0 var(--spacing-md);
 }
 
-/* Button Styles */
+/* ═══════════════════════════════════════════════════════
+   Buttons
+   ═══════════════════════════════════════════════════════ */
 .btn {
-  padding: 0.875rem 2rem;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -156,6 +157,7 @@ input:focus, textarea:focus, select:focus {
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
 }
 
 .btn::before {
@@ -166,14 +168,14 @@ input:focus, textarea:focus, select:focus {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition: width 0.5s ease, height 0.5s ease;
 }
 
 .btn:hover::before {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
 }
 
 .btn-primary {
@@ -199,7 +201,7 @@ input:focus, textarea:focus, select:focus {
 
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--color-primary);
+  border: 1.5px solid var(--color-primary);
   color: var(--color-primary);
 }
 
@@ -209,12 +211,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn-disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-/* Card Styles */
+/* ═══════════════════════════════════════════════════════
+   Cards
+   ═══════════════════════════════════════════════════════ */
 .card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -224,62 +228,43 @@ input:focus, textarea:focus, select:focus {
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
 }
 
-/* Floral Animations */
+/* ═══════════════════════════════════════════════════════
+   Animations
+   ═══════════════════════════════════════════════════════ */
 @keyframes petalFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-    opacity: 1;
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
 }
 
 @keyframes bloom {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.85); opacity: 0; }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.bloom-animation {
-  animation: bloom 0.8s ease-out;
-}
+.fade-in-up { animation: fadeInUp 0.7s ease-out; }
+.bloom-animation { animation: bloom 0.7s ease-out; }
 
-/* Loading Spinner */
+/* ═══════════════════════════════════════════════════════
+   Loading Overlay
+   ═══════════════════════════════════════════════════════ */
 .loading-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(135deg, var(--color-secondary-light), var(--color-white));
   display: flex;
   flex-direction: column;
@@ -289,17 +274,8 @@ input:focus, textarea:focus, select:focus {
   animation: fadeIn 0.3s ease-in;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .loading-logo {
-  width: 200px;
+  width: 180px;
   height: auto;
   animation: bloom 2s ease-in-out infinite;
 }
@@ -307,12 +283,15 @@ input:focus, textarea:focus, select:focus {
 .loading-text {
   margin-top: var(--spacing-md);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 400;
   color: var(--color-primary);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-/* Floral Background Effects */
+/* ═══════════════════════════════════════════════════════
+   Floral Background
+   ═══════════════════════════════════════════════════════ */
 .floral-bg {
   position: relative;
 }
@@ -320,28 +299,19 @@ input:focus, textarea:focus, select:focus {
 .floral-bg::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(221, 216, 192, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(74, 82, 57, 0.1) 0%, transparent 50%);
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(221, 216, 192, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(74, 82, 57, 0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
-/* Utility Classes */
-.text-center {
-  text-align: center;
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.text-secondary {
-  color: var(--color-secondary);
-}
+/* ═══════════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════════ */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
 
 .mt-1 { margin-top: var(--spacing-xs); }
 .mt-2 { margin-top: var(--spacing-sm); }
@@ -361,36 +331,23 @@ input:focus, textarea:focus, select:focus {
 .p-4 { padding: var(--spacing-lg); }
 .p-5 { padding: var(--spacing-xl); }
 
-/* Responsive */
+/* ═══════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-  }
-  
+  h1 { font-size: 2.35rem; }
+  h2 { font-size: 1.85rem; }
+  h3 { font-size: 1.45rem; }
+
   .btn {
     padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
-  
-  .loading-logo {
-    width: 150px;
-  }
+
+  .loading-logo { width: 140px; }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-  }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.6rem; }
 }

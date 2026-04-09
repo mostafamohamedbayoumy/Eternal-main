@@ -18,7 +18,7 @@ const offerSchema = new mongoose.Schema(
     targetServices: [
       {
         type: String,
-        enum: ['single-bouquet', 'customize-bouquet', 'events', 'all'],
+        enum: ['single-bouquet', 'customize-bouquet', 'all'],
       },
     ],
     discountType: {

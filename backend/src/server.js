@@ -11,7 +11,6 @@ const { errorHandler, notFound } = require('./middleware/errorHandler');
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
-const eventRoutes = require('./routes/eventRoutes');
 const promoCodeRoutes = require('./routes/promoCodeRoutes');
 const offerRoutes = require('./routes/offerRoutes');
 
@@ -61,7 +60,6 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
-app.use('/api/events', eventRoutes);
 app.use('/api/promo-codes', promoCodeRoutes);
 app.use('/api/offers', offerRoutes);
 
