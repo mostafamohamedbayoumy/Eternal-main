@@ -43,7 +43,8 @@ services:
     name: eternal-web
     runtime: static
     rootDir: frontend
-    buildCommand: npm install && npm run build
+    # CI=false so CRA does not treat lint warnings as build-breaking errors
+    buildCommand: npm install && CI=false npm run build
     staticPublishPath: build
     envVars:
       - key: REACT_APP_API_URL    # set to the eternal-api URL + /api
