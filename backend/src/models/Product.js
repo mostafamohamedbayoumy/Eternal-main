@@ -12,10 +12,9 @@ const productSchema = new mongoose.Schema(
       required: [true, 'Product description is required'],
     },
 
-    // Add this to your Product model schema
-    base64: {
-      type: String,
-      default: '',
+    images: {
+      type: [String],
+      default: [],
     },
 
     category: {

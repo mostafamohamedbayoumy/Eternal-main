@@ -11,6 +11,8 @@
   
   /* Additional colors */
   --color-accent: #8b9470;
+  --color-blush: #b8826f;
+  --color-blush-light: #f1e2db;
   --color-white: #ffffff;
   --color-black: #1a1a1a;
   --color-gray-light: #f5f5f5;
@@ -54,6 +56,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -212,6 +218,80 @@ input:focus, textarea:focus, select:focus {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.btn-outline-danger {
+  background: transparent;
+  border: 2px solid var(--color-error);
+  color: var(--color-error);
+}
+
+.btn-outline-danger:hover {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+/* Kicker — small tracked label used above headings */
+.kicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-blush);
+  margin-bottom: 0.75rem;
+}
+
+/* Shared form layout (Checkout, Events, Admin forms) */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group small {
+  margin-top: 0.5rem;
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+/* Organic section divider, used instead of hard color-block edges */
+.floral-divider {
+  display: flex;
+  justify-content: center;
+  color: var(--color-secondary-dark);
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+}
+
+.floral-divider svg {
+  width: 100%;
+  height: 24px;
+}
+
+.floral-divider-flip svg {
+  transform: scaleY(-1);
 }
 
 /* Card Styles */
@@ -379,9 +459,13 @@ input:focus, textarea:focus, select:focus {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
-  
+
   .loading-logo {
     width: 150px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
 

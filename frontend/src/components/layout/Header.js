@@ -38,6 +38,7 @@ const Header = () => {
             <Link to="/single-bouquet" onClick={() => setMenuOpen(false)}>Single Bouquets</Link>
             <Link to="/customize" onClick={() => setMenuOpen(false)}>Customize</Link>
             <Link to="/events" onClick={() => setMenuOpen(false)}>Events</Link>
+            <Link to="/#partners" onClick={() => setMenuOpen(false)}>Collaborate</Link>
           </nav>
 
           <div className="header-actions">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { getProducts } from '../../services/productService';
 import { createEventRequest } from '../../services/eventService';
+import ProductImage from '../../components/common/ProductImage';
 import './Events.css';
 
 const Events = () => {
@@ -204,7 +205,7 @@ const Events = () => {
                 <div className="centerpieces-grid">
                   {centerpieces.map(product => (
                     <div key={product._id} className="centerpiece-card card">
-                      <img src={product.images[0]} alt={product.name} />
+                      <ProductImage src={product.images?.[0]} alt={product.name} className="centerpiece-image" />
                       <div className="centerpiece-info">
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>

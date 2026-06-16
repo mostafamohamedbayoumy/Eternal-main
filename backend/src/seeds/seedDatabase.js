@@ -1,10 +1,20 @@
 require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const path = require('path');
+const cloudinary = require('../config/cloudinary');
 const User = require('../models/User');
 const Product = require('../models/Product');
 const PromoCode = require('../models/PromoCode');
 const Offer = require('../models/Offer');
+const Partner = require('../models/Partner');
+
+// Self-contained placeholder logo (no network dependency) until real partner logos are uploaded
+const placeholderLogo = (initial, bg) =>
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><rect width="160" height="160" rx="20" fill="${bg}"/><text x="50%" y="58%" font-family="Georgia, serif" font-size="68" fill="#fff" text-anchor="middle">${initial}</text></svg>`
+  );
 
 const connectDB = async () => {
   try {
@@ -29,6 +39,7 @@ const seedDatabase = async () => {
     await Product.deleteMany({});
     await PromoCode.deleteMany({});
     await Offer.deleteMany({});
+    await Partner.deleteMany({});
 
     // Create admin user
     console.log('👤 Creating admin user...');
@@ -243,6 +254,54 @@ const seedDatabase = async () => {
 
     console.log('✅ Single flower products created');
 
+    // ── Upload flower images to Cloudinary and link to products ──────
+    // Source images live in frontend/SingleFlowers (not served anywhere);
+    // we push each to Cloudinary once and store the resulting URL on the
+    // product. Fixed public_ids mean reseeding overwrites instead of
+    // piling up duplicate assets.
+    console.log('☁️  Uploading flower images to Cloudinary...');
+
+    const flowerImageMap = [
+      [dahlia, 'dahlia.jpeg'],
+      [valentineRose, 'valentinerose.jpeg'],
+      [hibiscus, 'hibiscus.jpeg'],
+      [lotus, 'lotus.jpeg'],
+      [swirlRose, 'swirlrose.jpeg'],
+      [tulip, 'tulip.jpeg'],
+      [calaLilies, 'colalilies.jpeg'],
+      [largeCalaLily, 'largecolalilies.jpeg'],
+      [hybridRose, 'hybridrose.jpeg'],
+      [rose, 'rose.jpeg'],
+      [babyFlowers, 'babyflowers.jpeg'],
+      [peony, 'peoney.jpeg'],
+      [orchid, 'orchid.jpeg'],
+      [daffodil, 'Daffodil.jpeg'],
+      [trumpetLily, 'trumpetlilies.jpeg'],
+      [hydrangeas, 'hydrangeas.jpeg'],
+    ];
+
+    const flowerImageDir = path.resolve(__dirname, '../../../frontend/SingleFlowers');
+    let uploadedCount = 0;
+
+    await Promise.all(
+      flowerImageMap.map(async ([product, file]) => {
+        try {
+          const publicId = 'eternal/products/' + file.replace(/\.[^.]+$/, '').toLowerCase();
+          const result = await cloudinary.uploader.upload(path.join(flowerImageDir, file), {
+            public_id: publicId,
+            overwrite: true,
+          });
+          product.images = [result.secure_url];
+          await product.save();
+          uploadedCount += 1;
+        } catch (error) {
+          console.warn(`  ⚠️  Could not upload ${file}: ${error.message}`);
+        }
+      })
+    );
+
+    console.log(`✅ Flower images uploaded and linked (${uploadedCount}/${flowerImageMap.length})`);
+
     // ── Fillers ─────────────────────────────────────────────────────
 
     const babyBreath = await Product.create({
@@ -361,6 +420,16 @@ const seedDatabase = async () => {
     });
 
     console.log('✅ Offer created');
+
+    // ── Partners (placeholder — replace from /admin/partners) ─────────
+    console.log('🤝 Creating placeholder partners...');
+
+    await Partner.create({ name: 'Willow & Bloom Studio', logoUrl: placeholderLogo('W', '#4a5239'), displayOrder: 1 });
+    await Partner.create({ name: 'The Gilded Petal', logoUrl: placeholderLogo('G', '#8b9470'), displayOrder: 2 });
+    await Partner.create({ name: 'Maison Botanique', logoUrl: placeholderLogo('M', '#c7c2a8'), displayOrder: 3 });
+    await Partner.create({ name: 'Evermore Events Co.', logoUrl: placeholderLogo('E', '#3a4029'), displayOrder: 4 });
+
+    console.log('✅ Placeholder partners created (edit/replace from /admin/partners)');
 
     console.log('\n🎉 Database seeded successfully!');
     console.log('\n📋 Login Credentials:');

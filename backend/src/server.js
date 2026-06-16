@@ -14,6 +14,8 @@ const orderRoutes = require('./routes/orderRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const promoCodeRoutes = require('./routes/promoCodeRoutes');
 const offerRoutes = require('./routes/offerRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
+const partnerRoutes = require('./routes/partnerRoutes');
 
 // Initialize app
 const app = express();
@@ -24,10 +26,16 @@ connectDB();
 // Security middleware
 app.use(helmet());
 
-// CORS configuration
+// CORS configuration — FRONTEND_URL may be a comma-separated list
+// (e.g. the live site + http://localhost:3000 for local development)
+const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:3000')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: allowedOrigins,
     credentials: true,
   })
 );
@@ -64,6 +72,8 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/promo-codes', promoCodeRoutes);
 app.use('/api/offers', offerRoutes);
+app.use('/api/upload', uploadRoutes);
+app.use('/api/partners', partnerRoutes);
 
 // Serve uploaded files
 app.use('/uploads', express.static('uploads'));

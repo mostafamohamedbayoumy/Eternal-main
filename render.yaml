@@ -1,0 +1,55 @@
+# Render Blueprint for Eternal Flowers
+# Deploys two free services: the Express API (web service) and the
+# React frontend (static site). Secrets are marked `sync: false`, so
+# Render will prompt you to enter them in the dashboard — copy them
+# from backend/.env (and use your new MongoDB Atlas URI for MONGODB_URI).
+#
+# Use via: Render Dashboard → New → Blueprint → pick this repo.
+
+services:
+  # ── Backend API (Express) ──────────────────────────────────────────
+  - type: web
+    name: eternal-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI          # your MongoDB Atlas connection string
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: FRONTEND_URL         # set to the eternal-web URL after first deploy
+        sync: false
+
+  # ── Frontend (React static site) ───────────────────────────────────
+  - type: web
+    name: eternal-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL    # set to the eternal-api URL + /api
+        sync: false
+    routes:
+      # SPA fallback so client-side routes (e.g. /single-bouquet/:id) work
+      - type: rewrite
+        source: /*
+        destination: /index.html

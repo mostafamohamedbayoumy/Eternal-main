@@ -15,6 +15,7 @@ const Home = lazy(() => import('./pages/customer/Home'));
 const Login = lazy(() => import('./pages/customer/Login'));
 const Register = lazy(() => import('./pages/customer/Register'));
 const SingleBouquet = lazy(() => import('./pages/customer/SingleBouquet'));
+const ProductDetail = lazy(() => import('./pages/customer/ProductDetail'));
 const CustomizeBouquet = lazy(() => import('./pages/customer/CustomizeBouquet'));
 const Events = lazy(() => import('./pages/customer/Events'));
 const Cart = lazy(() => import('./pages/customer/Cart'));
@@ -37,6 +38,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/single-bouquet" element={<SingleBouquet />} />
+                  <Route path="/single-bouquet/:id" element={<ProductDetail />} />
                   <Route path="/customize" element={<CustomizeBouquet />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/cart" element={<Cart />} />

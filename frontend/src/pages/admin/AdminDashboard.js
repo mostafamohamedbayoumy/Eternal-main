@@ -1,61 +1,57 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import AdminOverview from './AdminOverview';
+import AdminProducts from './AdminProducts';
+import ProductForm from './ProductForm';
+import AdminOrders from './AdminOrders';
+import AdminPartners from './AdminPartners';
+import EmptyState from '../../components/common/EmptyState';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
   return (
     <div className="admin-dashboard">
       <aside className="admin-sidebar">
-        <h2>Admin Panel</h2>
+        <h2 className="admin-sidebar-title">Eternal Admin</h2>
         <nav>
-          <Link to="/admin">Dashboard</Link>
-          <Link to="/admin/products">Products</Link>
-          <Link to="/admin/orders">Orders</Link>
-          <Link to="/admin/events">Event Requests</Link>
-          <Link to="/admin/promo-codes">Promo Codes</Link>
-          <Link to="/admin/offers">Offers</Link>
+          <NavLink to="/admin" end>Overview</NavLink>
+          <NavLink to="/admin/products">Products</NavLink>
+          <NavLink to="/admin/orders">Orders</NavLink>
+          <NavLink to="/admin/partners">Partners</NavLink>
+          <NavLink to="/admin/events">Event Requests</NavLink>
+          <NavLink to="/admin/promo-codes">Promo Codes</NavLink>
+          <NavLink to="/admin/offers">Offers</NavLink>
         </nav>
       </aside>
 
       <main className="admin-content">
         <Routes>
-          <Route path="/" element={<DashboardHome />} />
-          <Route path="/products" element={<div>Products Management</div>} />
-          <Route path="/orders" element={<div>Orders Management</div>} />
-          <Route path="/events" element={<div>Event Requests Management</div>} />
-          <Route path="/promo-codes" element={<div>Promo Codes Management</div>} />
-          <Route path="/offers" element={<div>Offers Management</div>} />
+          <Route path="/" element={<AdminOverview />} />
+          <Route path="/products" element={<AdminProducts />} />
+          <Route path="/products/new" element={<ProductForm />} />
+          <Route path="/products/:id/edit" element={<ProductForm />} />
+          <Route path="/orders" element={<AdminOrders />} />
+          <Route path="/partners" element={<AdminPartners />} />
+          <Route
+            path="/events"
+            element={
+              <EmptyState icon="🎉" title="Coming soon" message="Event request management isn't built yet." />
+            }
+          />
+          <Route
+            path="/promo-codes"
+            element={
+              <EmptyState icon="🎫" title="Coming soon" message="Promo code management isn't built yet." />
+            }
+          />
+          <Route
+            path="/offers"
+            element={<EmptyState icon="🎁" title="Coming soon" message="Offer management isn't built yet." />}
+          />
         </Routes>
       </main>
     </div>
   );
 };
-
-const DashboardHome = () => (
-  <div>
-    <h1>Admin Dashboard</h1>
-    <p>Welcome to the Eternal Flowers Admin Panel</p>
-    <div style={{ marginTop: '2rem' }}>
-      <div className="admin-stats">
-        <div className="stat-card">
-          <h3>Total Orders</h3>
-          <p className="stat-value">0</p>
-        </div>
-        <div className="stat-card">
-          <h3>Products</h3>
-          <p className="stat-value">0</p>
-        </div>
-        <div className="stat-card">
-          <h3>Event Requests</h3>
-          <p className="stat-value">0</p>
-        </div>
-        <div className="stat-card">
-          <h3>Active Promos</h3>
-          <p className="stat-value">0</p>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 export default AdminDashboard;

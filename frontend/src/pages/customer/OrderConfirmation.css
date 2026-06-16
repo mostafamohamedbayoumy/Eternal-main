@@ -1,6 +1,6 @@
 .order-confirmation-page {
   padding: 60px 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-white));
   min-height: 100vh;
 }
 
@@ -16,7 +16,7 @@
 
 .success-icon {
   font-size: 5rem;
-  color: #28a745;
+  color: var(--color-success);
   margin-bottom: 20px;
   animation: scaleIn 0.5s ease-out;
 }
@@ -33,13 +33,13 @@
 }
 
 .confirmation-card h1 {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
 .confirmation-message {
-  color: #6c757d;
+  color: var(--color-gray);
   font-size: 1.1rem;
   margin-bottom: 30px;
   max-width: 600px;
@@ -51,19 +51,19 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--secondary-color);
+  background: var(--color-secondary);
   padding: 15px 30px;
   border-radius: 8px;
   margin-bottom: 40px;
 }
 
 .order-number .label {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-weight: 500;
 }
 
 .order-number .value {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-weight: 700;
   font-size: 1.2rem;
   font-family: monospace;
@@ -75,12 +75,12 @@
   text-align: left;
   margin: 40px 0;
   padding: 30px 0;
-  border-top: 2px solid #eee;
+  border-top: 2px solid var(--color-secondary-light);
 }
 
 .order-details-section h2,
 .order-items-section h2 {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.5rem;
   margin-bottom: 25px;
 }
@@ -96,12 +96,12 @@
   gap: 15px;
   align-items: flex-start;
   padding: 15px;
-  background: #f8f9fa;
+  background: var(--color-secondary-light);
   border-radius: 8px;
 }
 
 .detail-item .icon {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.5rem;
   margin-top: 5px;
 }
@@ -114,13 +114,13 @@
 }
 
 .detail-label {
-  color: #6c757d;
+  color: var(--color-gray);
   font-size: 0.85rem;
   font-weight: 500;
 }
 
 .detail-value {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -134,13 +134,13 @@
   display: flex;
   gap: 20px;
   padding: 20px;
-  background: #f8f9fa;
+  background: var(--color-secondary-light);
   border-radius: 8px;
   margin-bottom: 15px;
   align-items: center;
 }
 
-.order-item img {
+.order-item-image {
   width: 80px;
   height: 80px;
   object-fit: cover;
@@ -152,7 +152,7 @@
 }
 
 .item-details h3 {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.1rem;
   margin-bottom: 8px;
 }
@@ -160,21 +160,21 @@
 .item-details .badge {
   display: inline-block;
   padding: 3px 10px;
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  background: var(--color-secondary);
+  color: var(--color-primary);
   border-radius: 4px;
   font-size: 0.75rem;
   margin-right: 5px;
 }
 
 .item-details p {
-  color: #6c757d;
+  color: var(--color-gray);
   font-size: 0.9rem;
   margin: 5px 0 0 0;
 }
 
 .item-price {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -184,7 +184,7 @@
   background: white;
   padding: 20px;
   border-radius: 8px;
-  border: 2px solid #eee;
+  border: 2px solid var(--color-secondary-light);
 }
 
 .total-row {
@@ -192,41 +192,41 @@
   justify-content: space-between;
   margin-bottom: 12px;
   font-size: 1rem;
-  color: #333;
+  color: var(--color-gray-dark);
 }
 
 .total-row.discount {
-  color: #28a745;
+  color: var(--color-success);
   font-weight: 500;
 }
 
 .total-row.grand-total {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--color-primary);
   padding-top: 15px;
-  border-top: 2px solid var(--secondary-color);
+  border-top: 2px solid var(--color-secondary);
   margin-top: 10px;
 }
 
 /* Payment Info */
 .payment-info {
   text-align: left;
-  background: #fffbea;
+  background: var(--color-secondary-light);
   padding: 20px;
   border-radius: 8px;
-  border: 2px solid #ffd700;
+  border: 2px solid var(--color-secondary);
   margin: 30px 0;
 }
 
 .payment-info h3 {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
 .payment-info p {
-  color: #856404;
+  color: var(--color-gray-dark);
   font-size: 1.05rem;
   margin: 0;
 }
@@ -238,7 +238,7 @@
 }
 
 .next-steps h3 {
-  color: var(--primary-color);
+  color: var(--color-primary);
   font-size: 1.3rem;
   margin-bottom: 15px;
 }
@@ -248,14 +248,14 @@
 }
 
 .next-steps li {
-  color: #333;
+  color: var(--color-gray-dark);
   font-size: 1rem;
   margin-bottom: 12px;
   line-height: 1.6;
 }
 
 .next-steps strong {
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 /* Action Buttons */
@@ -273,14 +273,14 @@
 
 /* Support Info */
 .support-info {
-  background: #f8f9fa;
+  background: var(--color-secondary-light);
   padding: 20px;
   border-radius: 8px;
   margin-top: 30px;
 }
 
 .support-info p {
-  color: #6c757d;
+  color: var(--color-gray);
   margin: 5px 0;
   font-size: 0.95rem;
 }
@@ -295,7 +295,7 @@
   .support-info {
     display: none;
   }
-  
+
   .confirmation-card {
     box-shadow: none;
   }
@@ -324,7 +324,7 @@
     text-align: center;
   }
 
-  .order-item img {
+  .order-item-image {
     margin: 0 auto;
   }
 

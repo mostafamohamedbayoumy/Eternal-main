@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { FaTrash, FaShoppingBag } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 import { validatePromoCode } from '../../services/promoService';
+import ProductImage from '../../components/common/ProductImage';
 import './Cart.css';
 
 const Cart = () => {
@@ -56,7 +57,7 @@ const Cart = () => {
 
   const renderCartItem = (item, index) => (
     <div key={index} className="cart-item card">
-      <img src={item.productImage} alt={item.productName} className="cart-item-image" />
+      <ProductImage src={item.productImage} alt={item.productName} className="cart-item-image" />
       
       <div className="cart-item-details">
         <h3>{item.productName}</h3>

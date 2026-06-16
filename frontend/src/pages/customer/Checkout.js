@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useCart } from '../../context/CartContext';
 import { createOrder } from '../../services/orderService';
+import ProductImage from '../../components/common/ProductImage';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -309,7 +310,7 @@ const Checkout = () => {
               <div className="summary-items">
                 {cart.map((item, index) => (
                   <div key={index} className="summary-item">
-                    <img src={item.productImage} alt={item.productName} />
+                    <ProductImage src={item.productImage} alt={item.productName} className="summary-item-image" />
                     <div className="summary-item-details">
                       <h4>{item.productName}</h4>
                       {item.isCustomBouquet && <span className="custom-badge">Custom</span>}

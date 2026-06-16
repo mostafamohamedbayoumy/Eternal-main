@@ -1,15 +1,43 @@
 .footer {
+  position: relative;
   background: var(--color-primary);
   color: var(--color-white);
   padding: 3rem 0 1rem;
-  margin-top: 5rem;
+  margin-top: 6rem;
+}
+
+.footer-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  color: var(--color-primary);
+  transform: translateY(-100%);
+}
+
+.footer-divider svg {
+  width: 100%;
+  height: 28px;
+  display: block;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 2rem;
+}
+
+.footer-brand h4 {
+  font-size: 1.6rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
 }
 
 .footer-section h4 {
@@ -23,7 +51,7 @@
   color: var(--color-white);
   display: block;
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .footer-section a:hover {

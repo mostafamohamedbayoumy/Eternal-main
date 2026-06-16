@@ -1,9 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import FloralDivider from '../../components/common/FloralDivider';
+import PartnersShowcase from '../../components/common/PartnersShowcase';
 import './Home.css';
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -15,6 +26,7 @@ const Home = () => {
 
         <div className="container">
           <div className="hero-content fade-in-up">
+            <span className="kicker">Handmade · Lasting · Yours</span>
             <p className="hero-slogan">Because Forever Matters</p>
             <p className="hero-description">
               Handmade eternal flowers that last forever. Celebrate life's precious moments
@@ -32,9 +44,12 @@ const Home = () => {
         </div>
       </section>
 
+      <FloralDivider />
+
       {/* Services Section */}
       <section className="services">
         <div className="container">
+          <span className="kicker">What We Offer</span>
           <h2 className="section-title text-center">Our Services</h2>
           <p className="section-subtitle text-center">
             Discover the perfect eternal flowers for every occasion
@@ -76,9 +91,23 @@ const Home = () => {
                 Plan Event
               </Link>
             </div>
+
+            <div className="service-card card bloom-animation">
+              <div className="service-icon">🤝</div>
+              <h3>Collaborate With Us</h3>
+              <p>
+                We team up with florists, event planners, and creators who share
+                our love for things that last.
+              </p>
+              <Link to="/#partners" className="btn btn-secondary">
+                Meet Our Partners
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      <FloralDivider flip />
 
       {/* Why Choose Us */}
       <section className="why-choose floral-bg">
@@ -104,6 +133,20 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <section id="partners" className="partners-section">
+        <div className="container text-center">
+          <span className="kicker">In Collaboration With</span>
+          <h2 className="section-title text-center">Our Partners</h2>
+          <p className="section-subtitle text-center">
+            Brands and creators we're proud to work alongside.
+          </p>
+          <PartnersShowcase />
+        </div>
+      </section>
+
+      <FloralDivider />
 
       {/* Call to Action */}
       <section className="cta">

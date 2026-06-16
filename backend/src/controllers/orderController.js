@@ -107,7 +107,7 @@ exports.createOrder = async (req, res, next) => {
       deliveryTimeWindow,
       notes,
       paymentMethod: paymentMethod || 'cash-on-delivery',
-      status: 'pending',
+      status: 'ongoing',
       paymentStatus: 'pending',
     };
 
@@ -244,6 +244,60 @@ exports.updateOrderStatus = async (req, res, next) => {
       success: true,
       message: 'Order updated successfully',
       data: order,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// @desc    Get order statistics (Admin)
+// @route   GET /api/orders/stats
+// @access  Private/Admin
+exports.getOrderStats = async (req, res, next) => {
+  try {
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const dayOfWeek = (now.getDay() + 6) % 7; // 0 = Monday
+    const startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - dayOfWeek);
+
+    const [
+      ordersThisWeek,
+      ordersThisMonth,
+      ordersThisYear,
+      ongoingCount,
+      deliveredCount,
+      cancelledCount,
+      totalProducts,
+      revenueOrders,
+    ] = await Promise.all([
+      Order.countDocuments({ createdAt: { $gte: startOfWeek } }),
+      Order.countDocuments({ createdAt: { $gte: startOfMonth } }),
+      Order.countDocuments({ createdAt: { $gte: startOfYear } }),
+      Order.countDocuments({ status: 'ongoing' }),
+      Order.countDocuments({ status: 'delivered' }),
+      Order.countDocuments({ status: 'cancelled' }),
+      Product.countDocuments({ isActive: true }),
+      Order.find({ status: { $ne: 'cancelled' } }, 'totalAfterDiscount'),
+    ]);
+
+    const totalRevenue = revenueOrders.reduce((sum, order) => sum + order.totalAfterDiscount, 0);
+
+    res.json({
+      success: true,
+      data: {
+        ordersThisWeek,
+        ordersThisMonth,
+        ordersThisYear,
+        totalOrders: ongoingCount + deliveredCount + cancelledCount,
+        byStatus: {
+          ongoing: ongoingCount,
+          delivered: deliveredCount,
+          cancelled: cancelledCount,
+        },
+        totalProducts,
+        totalRevenue,
+      },
     });
   } catch (error) {
     next(error);

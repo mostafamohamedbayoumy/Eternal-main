@@ -1,0 +1,43 @@
+.order-filter-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+}
+
+.filter-tab.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.status-badge {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.status-ongoing {
+  background: rgba(139, 148, 112, 0.18);
+  color: var(--color-primary);
+}
+
+.status-badge.status-delivered {
+  background: rgba(107, 148, 112, 0.18);
+  color: var(--color-success);
+}
+
+.status-badge.status-cancelled {
+  background: rgba(199, 116, 116, 0.15);
+  color: var(--color-error);
+}

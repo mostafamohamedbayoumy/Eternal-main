@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { getProducts } from '../../services/productService';
 import { useCart } from '../../context/CartContext';
+import ProductImage from '../../components/common/ProductImage';
 import './CustomizeBouquet.css';
 
 const CustomizeBouquet = () => {
@@ -132,7 +133,7 @@ const CustomizeBouquet = () => {
     const cartItem = {
       productId: 'custom-' + Date.now(),
       productName: 'Custom Bouquet',
-      productImage: flowers[0]?.images[0] || 'https://via.placeholder.com/300',
+      productImage: flowers[0]?.images?.[0] || '',
       price: calculateTotal(),
       quantity: 1,
       isCustomBouquet: true,
@@ -155,7 +156,7 @@ const CustomizeBouquet = () => {
       <div className="products-grid-compact">
         {products.map(product => (
           <div key={product._id} className="product-selector-card">
-            <img src={product.images[0]} alt={product.name} />
+            <ProductImage src={product.images?.[0]} alt={product.name} className="product-selector-image" />
             <div className="product-selector-info">
               <h4>{product.name}</h4>
               <p className="product-selector-price">

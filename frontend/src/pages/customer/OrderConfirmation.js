@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCheckCircle, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import ProductImage from '../../components/common/ProductImage';
 import './OrderConfirmation.css';
 
 const OrderConfirmation = () => {
@@ -94,7 +95,7 @@ const OrderConfirmation = () => {
             <div className="items-list">
               {order.items.map((item, index) => (
                 <div key={index} className="order-item">
-                  <img src={item.productImage} alt={item.productName} />
+                  <ProductImage src={item.productImage} alt={item.productName} className="order-item-image" />
                   <div className="item-details">
                     <h3>{item.productName}</h3>
                     {item.isCustomBouquet && <span className="badge">Custom Bouquet</span>}

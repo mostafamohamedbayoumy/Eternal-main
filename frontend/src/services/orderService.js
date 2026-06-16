@@ -30,3 +30,9 @@ export const updateOrderStatus = async (id, statusData) => {
   const response = await api.put(`/orders/${id}/status`, statusData);
   return response.data;
 };
+
+// Get order statistics (Admin)
+export const getOrderStats = async () => {
+  const response = await api.get('/orders/stats');
+  return response.data;
+};

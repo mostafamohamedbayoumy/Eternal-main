@@ -1,0 +1,98 @@
+.admin-overview h1 {
+  margin-bottom: 0.25rem;
+}
+
+.admin-subtitle {
+  color: var(--color-gray);
+  margin-bottom: 2rem;
+}
+
+.admin-section-heading {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--color-white);
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 3px solid var(--color-secondary);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card-accent {
+  border-top-color: var(--color-blush);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-gray);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.status-breakdown {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  flex: 1;
+  min-width: 140px;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.status-count {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+}
+
+.status-pill.status-ongoing {
+  background: rgba(139, 148, 112, 0.15);
+  color: var(--color-primary);
+}
+
+.status-pill.status-delivered {
+  background: rgba(107, 148, 112, 0.18);
+  color: var(--color-success);
+}
+
+.status-pill.status-cancelled {
+  background: rgba(199, 116, 116, 0.15);
+  color: var(--color-error);
+}
+
+@media (max-width: 600px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}

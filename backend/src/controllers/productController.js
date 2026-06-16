@@ -1,6 +1,44 @@
 const Product = require('../models/Product');
 const Offer = require('../models/Offer');
 
+// Fetch offers that are currently live
+const getActiveOffers = () => {
+  const now = new Date();
+  return Offer.find({
+    isActive: true,
+    startDate: { $lte: now },
+    endDate: { $gte: now },
+  });
+};
+
+// Attach applicable offers + a discountedPrice to a product (returns a plain object)
+const applyOffers = (product, activeOffers) => {
+  const productObj = product.toObject();
+
+  const applicableOffers = activeOffers.filter(
+    (offer) =>
+      offer.targetProducts.some((id) => id.toString() === product._id.toString()) ||
+      offer.targetServices.includes('all')
+  );
+
+  if (applicableOffers.length > 0) {
+    productObj.offers = applicableOffers;
+
+    let maxDiscount = 0;
+    applicableOffers.forEach((offer) => {
+      const discount =
+        offer.discountType === 'percentage'
+          ? (product.price * offer.discountValue) / 100
+          : offer.discountValue;
+      maxDiscount = Math.max(maxDiscount, discount);
+    });
+
+    productObj.discountedPrice = Math.max(0, product.price - maxDiscount);
+  }
+
+  return productObj;
+};
+
 // @desc    Get all products (with filters)
 // @route   GET /api/products
 // @access  Public
@@ -35,46 +73,8 @@ exports.getProducts = async (req, res, next) => {
 
     const products = await Product.find(query).sort({ createdAt: -1 });
 
-    // Get active offers for products
-    const now = new Date();
-    const activeOffers = await Offer.find({
-      isActive: true,
-      startDate: { $lte: now },
-      endDate: { $gte: now },
-    });
-
-    // Apply offers to products
-    const productsWithOffers = products.map((product) => {
-      const productObj = product.toObject();
-      
-      // Find applicable offers
-      const applicableOffers = activeOffers.filter((offer) => {
-        return (
-          offer.targetProducts.some((id) => id.toString() === product._id.toString()) ||
-          offer.targetServices.includes('all')
-        );
-      });
-
-      if (applicableOffers.length > 0) {
-        productObj.offers = applicableOffers;
-        
-        // Calculate discounted price (use highest discount)
-        let maxDiscount = 0;
-        applicableOffers.forEach((offer) => {
-          let discount = 0;
-          if (offer.discountType === 'percentage') {
-            discount = (product.price * offer.discountValue) / 100;
-          } else {
-            discount = offer.discountValue;
-          }
-          maxDiscount = Math.max(maxDiscount, discount);
-        });
-        
-        productObj.discountedPrice = Math.max(0, product.price - maxDiscount);
-      }
-
-      return productObj;
-    });
+    const activeOffers = await getActiveOffers();
+    const productsWithOffers = products.map((product) => applyOffers(product, activeOffers));
 
     res.json({
       success: true,
@@ -100,9 +100,11 @@ exports.getProduct = async (req, res, next) => {
       });
     }
 
+    const activeOffers = await getActiveOffers();
+
     res.json({
       success: true,
-      data: product,
+      data: applyOffers(product, activeOffers),
     });
   } catch (error) {
     next(error);
